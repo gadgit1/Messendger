@@ -1,0 +1,46 @@
+﻿@page
+@model RazorPagesMovie.Pages.Movies.IndexModel
+
+@{
+    ViewData["Title"] = "Архив сообщений";
+}
+
+<h1>Архив сообщений</h1>
+<form>
+    <p>
+        Поиск: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Найти" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].Содержимое)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Movie[0].ReleaseDate)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Movie)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Содержимое)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+ 
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Редактировать</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Подробнее</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

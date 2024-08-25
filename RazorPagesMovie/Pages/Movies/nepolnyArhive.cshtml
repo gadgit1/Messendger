@@ -1,0 +1,34 @@
+﻿@page
+@model RazorPagesMovie.Pages.Movies.nepolnyArhiveModel
+
+@{
+    ViewData["Title"] = "Архив недавних сообщений";
+}
+<div class="text-center"> 
+    <h1>Архив недавних сообщений</h1>
+    <hr/>
+    <form method="post">
+        
+        <input type="submit" value="Sumbit"
+        <a asp-page="Index">Без нажатия не пашет</a>
+        <table class="table">
+            <tr>
+                <th>Содержимое</th>
+                <th>ReleaseDate</th>
+            </tr>
+
+
+       
+    
+            @foreach (var item in Model.results)
+            {
+
+                <tr>
+                    <td>@item.Содержимое</td>
+                    <td>@item.ReleaseDate</td>
+                </tr>
+            }
+    
+        </table>
+    </form>
+</div>
